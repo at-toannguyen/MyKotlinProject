@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<lint>
+    <issue id="CommitPrefEdits" severity="ignore" />
+    <issue id="ContentDescription" severity="ignore" />
+    <issue id="IconDensities" severity="ignore" />
+    <issue id="IconLauncherShape">
+        <ignore path="src/main/res/drawable/ic_logo.png" />
+    </issue>
+    <issue id="IconMissingDensityFolder" severity="ignore" />
+    <issue id="MissingTranslation" severity="ignore" />
+    <issue id="Overdraw" severity="ignore" />
+    <issue id="RelativeOverlap" severity="ignore" />
+    <issue id="RtlHardcoded" severity="ignore" />
+    <issue id="RtlSymmetry" severity="ignore" />
+    <issue id="SpUsage" severity="ignore" />
+    <issue id="TextViewEdits" severity="ignore" />
+    <issue id="TypographyEllipsis" severity="ignore" />
+    <issue id="TypographyOther" severity="ignore" />
+    <issue id="UseCompoundDrawables" severity="ignore" />
+</lint>
