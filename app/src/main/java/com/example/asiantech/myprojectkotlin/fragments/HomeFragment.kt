@@ -1,14 +1,15 @@
 package com.example.asiantech.myprojectkotlin.fragments
 
+import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
 import android.support.v7.widget.GridLayoutManager
 import android.support.v7.widget.RecyclerView
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.asiantech.myprojectkotlin.R
+import com.example.asiantech.myprojectkotlin.activities.NewsActivity
 import com.example.asiantech.myprojectkotlin.adapters.HomeFragmentAdapter
 import com.example.asiantech.myprojectkotlin.api.SOService
 import com.example.asiantech.myprojectkotlin.listeners.OnClickItemListener
@@ -58,18 +59,21 @@ class HomeFragment() : android.support.v4.app.Fragment(), OnClickItemListener {
     private fun loadData() {
         mService.getCategory().enqueue(object : Callback<CategoryResponse> {
             override fun onResponse(call: Call<CategoryResponse>?, response: Response<CategoryResponse>?) {
-                Log.d("AAAAAA","AAAAAA")
                 mCategories.addAll(response?.body()?.data!!)
                 mAdapter?.notifyDataSetChanged()
             }
 
             override fun onFailure(call: Call<CategoryResponse>?, t: Throwable?) {
-                Log.d("AAAA","AAAAAAA")
             }
         })
     }
 
     override fun onClickItem(position: Int) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        val intent = Intent(activity, NewsActivity::class.java)
+        val bundle = Bundle()
+        bundle.putString("idCategory", mCategories[position].idCategory)
+        bundle.putString("nameCategory", mCategories.get(position).nameCategory)
+        intent.putExtras(bundle)
+        startActivity(intent)
     }
 }

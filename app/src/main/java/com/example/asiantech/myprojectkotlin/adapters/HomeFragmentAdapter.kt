@@ -32,7 +32,7 @@ class HomeFragmentAdapter(private val mConText: Context
         holder?.itemView?.tvNameCategory?.text = item.nameCategory
         Picasso.with(mConText)
                 .load(item.imgCategory)
-                .resize(ScreenUtil.getScreenWidth(mConText)/2,ScreenUtil.getScreenHeight(mConText)/3)
+                .resize(ScreenUtil.getScreenWidth(mConText) / 2, ScreenUtil.getScreenHeight(mConText) / 3)
                 .into(holder?.itemView?.imgCategory)
 
     }
