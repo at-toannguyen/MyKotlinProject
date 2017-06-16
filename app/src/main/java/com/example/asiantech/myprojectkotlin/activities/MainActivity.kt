@@ -1,9 +1,12 @@
 package com.example.asiantech.myprojectkotlin.activities
 
 import android.os.Bundle
+import android.os.Handler
 import android.support.design.widget.TabLayout
 import android.support.v4.view.ViewPager
 import android.support.v7.app.AppCompatActivity
+import android.util.Log
+import android.widget.Toast
 import com.example.asiantech.myprojectkotlin.R
 import com.example.asiantech.myprojectkotlin.adapters.ViewPagerMainAdapter
 import kotlinx.android.synthetic.main.activity_main.*
@@ -11,18 +14,20 @@ import kotlinx.android.synthetic.main.activity_main.*
 class MainActivity() : AppCompatActivity(), TabLayout.OnTabSelectedListener, ViewPager.OnPageChangeListener {
     // Constant variable
     companion object {
-        private val SCREEN_PAGE_LIMIT = 3
-        private val TAB1_IS_SELECTED = 0
-        private val TAB2_IS_SELECTED = 1
-        private val TAB3_IS_SELECTED = 2
-        private val TAB4_IS_SELECTED = 3
+        private const val SCREEN_PAGE_LIMIT = 3
+        private const val TAB1_IS_SELECTED = 0
+        private const val TAB2_IS_SELECTED = 1
+        private const val TAB3_IS_SELECTED = 2
+        private const val TAB4_IS_SELECTED = 3
+        private const val SECOND_DELAY_EXIT_APP = 3000
     }
 
     private var mTab1: TabLayout.Tab? = null
     private var mTab2: TabLayout.Tab? = null
     private var mTab3: TabLayout.Tab? = null
     private var mTab4: TabLayout.Tab? = null
-
+    private var mIsDoubleBackToExitPressedOnce: Boolean? = false
+    private var mHandler: Handler? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -30,7 +35,8 @@ class MainActivity() : AppCompatActivity(), TabLayout.OnTabSelectedListener, Vie
         tabLayoutMain.tabGravity = TabLayout.GRAVITY_FILL
         viewPagerMain.adapter = ViewPagerMainAdapter(supportFragmentManager)
         viewPagerMain.offscreenPageLimit = SCREEN_PAGE_LIMIT
-        viewPagerMain.addOnPageChangeListener(this)
+        viewPagerMain.addOnPageChangeListener(TabLayout.TabLayoutOnPageChangeListener(tabLayoutMain))
+        Log.d("AAAA",""+viewPagerMain.adapter.count)
         initTab()
     }
 
@@ -86,4 +92,16 @@ class MainActivity() : AppCompatActivity(), TabLayout.OnTabSelectedListener, Vie
         }
     }
 
+    override fun onBackPressed() {
+        if (mIsDoubleBackToExitPressedOnce!!) {
+            super.onBackPressed()
+            return
+        }
+        this.mIsDoubleBackToExitPressedOnce = true
+        Toast.makeText(this, R.string.toast_text_exit_application, Toast.LENGTH_SHORT).show()
+        // Delay 2s to toast on screen to require user click twice again
+        Handler().postDelayed(Runnable {
+            mIsDoubleBackToExitPressedOnce = false
+        }, SECOND_DELAY_EXIT_APP.toLong())
+    }
 }

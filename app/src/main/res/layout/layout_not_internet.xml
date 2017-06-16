@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/rlNotInternet"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/relativelayout.background.not_internet"
+    android:visibility="gone">
+
+    <ImageView
+        android:id="@+id/imgWifi"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="100dp"
+        android:src="@drawable/ic_wifi_error" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/imgWifi"
+        android:gravity="center_horizontal"
+        android:text="@string/textview.text.internet_error"
+        android:textSize="15sp"
+        android:textStyle="bold" />
+</RelativeLayout>
