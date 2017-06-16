@@ -3,4 +3,6 @@
     <string name="edittext.hint.find">Tìm kiếm</string>
     <string name="toast.text.exit_application">Bấm thêm lần nữa để thoát ứng dụng</string>
     <string name="textview.text.internet_error">Lỗi kết nối.Chạm vào màn hình để thử lại</string>
+    <string name="string.text.date_sale">Từ %1$s Đến %2$s</string>
+    <string name="toast.text.error_load_data">Lỗi truy xuất dữ liệu</string>
 </resources>
