@@ -1,5 +1,6 @@
 package com.example.asiantech.myprojectkotlin.activities
 
+import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
 import android.support.v7.app.AppCompatActivity
@@ -106,13 +107,13 @@ class NewsActivity : AppCompatActivity(), OnClickItemListener {
     }
 
     private fun initLoadMore() {
-        recyclerView.addOnScrollListener(object :RecyclerView.OnScrollListener(){
+        recyclerView.addOnScrollListener(object : RecyclerView.OnScrollListener() {
             override fun onScrolled(recyclerView: RecyclerView?, dx: Int, dy: Int) {
                 super.onScrolled(recyclerView, dx, dy)
-                val lastVisibleItem=mLayoutManager.findLastCompletelyVisibleItemPosition()
-                if (lastVisibleItem==mNewsList.size-1){
-                    progressBarNew.visibility=View.VISIBLE
-                    mHandler.postDelayed(object :TimerTask(){
+                val lastVisibleItem = mLayoutManager.findLastCompletelyVisibleItemPosition()
+                if (lastVisibleItem == mNewsList.size - 1) {
+                    progressBarNew.visibility = View.VISIBLE
+                    mHandler.postDelayed(object : TimerTask() {
                         override fun run() {
                             loadData(true)
                         }
@@ -131,7 +132,10 @@ class NewsActivity : AppCompatActivity(), OnClickItemListener {
     }
 
     override fun onClickItem(position: Int) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        val intent = Intent(this, NewsDetailActivity::class.java)
+        val bundle = Bundle()
+        bundle.putString("idNews", mNewsList.get(position).idNews)
+        intent.putExtras(bundle)
+        startActivity(intent)
     }
-
 }
