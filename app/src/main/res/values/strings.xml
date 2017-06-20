@@ -5,4 +5,26 @@
     <string name="textview.text.internet_error">Lỗi kết nối.Chạm vào màn hình để thử lại</string>
     <string name="string.text.date_sale">Từ %1$s Đến %2$s</string>
     <string name="toast.text.error_load_data">Lỗi truy xuất dữ liệu</string>
+    <string name="textview.text.header_detail">Chi tiết Tin Tức</string>
+    <string name="textview.text.title_detail">Tiêu Đề</string>
+    <string name="textview.text.datetime_detail">datetime</string>
+    <string name="textview.text.name_user_detail">nameUser</string>
+    <string name="textview.text.content_detail">Nội dung</string>
+    <string name="textview.text.type_detail">Danh Mục</string>
+    <string name="textview.text.content_type_detail">nội dung loại</string>
+    <string name="textview.text.country_detail">Vùng</string>
+    <string name="textview.text.content_country_detail">Nội dung vùng</string>
+    <string name="textview.text.adress_detail">Địa chỉ</string>
+    <string name="textview.text.content_adress_detail">Nội dung</string>
+    <string name="textview.text.map_detail">Xem bản đồ</string>
+    <string name="textview.text.facebook_detail">Facebook</string>
+    <string name="textview.text.sharelink_detail">Share link</string>
+    <string name="textview.text.report_detail">Báo cáo vi phạm</string>
+    <string name="toast.text.add_favorite_success">"Đã Thêm Tin Vào Mục Yêu Thích"</string>
+    <string name="toast.text.add_favorite_fail">Thêm Yêu Thích Thất Bại</string>
+    <string name="dialogbuilder.text.title_builder">Bạn có chắc muốn huỷ yêu thích?</string>
+    <string name="button.text.ok">Đồng ý</string>
+    <string name="button.text.cancel">Đóng lại</string>
+    <string name="toast.text.delete_favorite_success">Đã Huỷ Yêu Thích</string>
+    <string name="toast.text.delete_favorite_fail">Huỷ Thất Bại</string>
 </resources>

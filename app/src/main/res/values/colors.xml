@@ -4,5 +4,6 @@
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
     <color name="toolbar.background.header">#ffe6cc</color>
+    <color name="header.background">#ffe6cc</color>
     <color name="relativelayout.background.not_internet">#e6e6e6</color>
 </resources>

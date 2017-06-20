@@ -36,7 +36,7 @@ class MainActivity() : AppCompatActivity(), TabLayout.OnTabSelectedListener, Vie
         viewPagerMain.adapter = ViewPagerMainAdapter(supportFragmentManager)
         viewPagerMain.offscreenPageLimit = SCREEN_PAGE_LIMIT
         viewPagerMain.addOnPageChangeListener(TabLayout.TabLayoutOnPageChangeListener(tabLayoutMain))
-        Log.d("AAAA",""+viewPagerMain.adapter.count)
+        Log.d("AAAA", "" + viewPagerMain.adapter.count)
         initTab()
     }
 
@@ -64,7 +64,7 @@ class MainActivity() : AppCompatActivity(), TabLayout.OnTabSelectedListener, Vie
      *
      */
     override fun onTabReselected(tab: TabLayout.Tab?) {
-        viewPagerMain.currentItem = tab!!.position
+        // No-op
     }
 
     override fun onTabUnselected(tab: TabLayout.Tab?) {
@@ -72,7 +72,7 @@ class MainActivity() : AppCompatActivity(), TabLayout.OnTabSelectedListener, Vie
     }
 
     override fun onTabSelected(tab: TabLayout.Tab?) {
-        // No-op
+        viewPagerMain.currentItem = tab!!.position
     }
 
     override fun onPageScrollStateChanged(state: Int) {
